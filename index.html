@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kai Vance - Senior Staff Creative Engineer & Systems Architect. High-performance web development, WebGL interactive graphics, and clean architecture." />
+  <title>Kai Vance | Senior Staff Creative Engineer & Systems Architect</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+
+  <!-- Dynamic Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="nav-logo">
+        KAI<span>.DEV</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#playground">Playground</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="availability-badge">
+          <span class="pulse-dot"></span>
+          <span>Available for Hire</span>
+        </div>
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="about">
+    <canvas id="hero-canvas"></canvas>
+    <div class="container hero-content">
+      <div>
+        <div class="hero-tag">⚡ CREATIVE SYSTEMS ENGINEER</div>
+        <h1 class="hero-title">Crafting <span>High-Performance</span> Digital Experiences.</h1>
+        <p class="hero-description">
+          Senior Staff Software Engineer specializing in WebGL 3D graphics, reactive frontend architecture, and robust clean systems design.
+        </p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn btn-primary">Explore Work ↓</a>
+          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3>8+</h3>
+            <p>Years Experience</p>
+          </div>
+          <div class="stat-item">
+            <h3>45+</h3>
+            <p>Shipped Projects</p>
+          </div>
+          <div class="stat-item">
+            <h3>99.9%</h3>
+            <p>Web Vitals Score</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Terminal Snippet -->
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="terminal-title">architect.config.ts</span>
+        </div>
+        <div class="terminal-body" id="terminal-code"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Canvas Playground Section -->
+  <section class="section" id="playground">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Interactive Sandbox</span>
+        <h2 class="section-title">Live Canvas Particle Matrix</h2>
+        <p class="section-subtitle">Tweak real-time rendering parameters directly in your browser canvas engine.</p>
+      </div>
+
+      <div class="glass-panel playground-box">
+        <canvas id="playground-canvas"></canvas>
+
+        <div class="playground-controls">
+          <h3 style="font-size: 1.1rem; margin-bottom: 1.25rem; font-weight: 700;">Engine Controls</h3>
+          
+          <div class="control-group">
+            <label>Particle Count <span id="val-count" style="color: var(--accent-cyan);">60</span></label>
+            <input type="range" id="pg-count" min="10" max="150" value="60" class="slider-input" />
+          </div>
+
+          <div class="control-group">
+            <label>Simulation Speed <span id="val-speed" style="color: var(--accent-cyan);">1.5x</span></label>
+            <input type="range" id="pg-speed" min="0.2" max="4.0" step="0.1" value="1.5" class="slider-input" />
+          </div>
+
+          <div class="control-group">
+            <label>Color Hue Shift <span id="val-hue" style="color: var(--accent-cyan);">195°</span></label>
+            <input type="range" id="pg-hue" min="0" max="360" value="195" class="slider-input" />
+          </div>
+
+          <div class="control-group">
+            <label>Glow Radius <span id="val-glow" style="color: var(--accent-cyan);">15px</span></label>
+            <input type="range" id="pg-glow" min="0" max="40" value="15" class="slider-input" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Showcase Section -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Selected Portfolio</span>
+        <h2 class="section-title">Featured Engineering Work</h2>
+        <p class="section-subtitle">Explorations in high-scale AI dashboards, 3D WebGL render engines, and real-time audio synthesis.</p>
+      </div>
+
+      <div class="filter-container">
+        <div class="filter-tabs" id="filter-tabs"></div>
+
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="project-search" class="search-input" placeholder="Search by name or tech stack..." />
+        </div>
+      </div>
+
+      <div class="projects-grid" id="projects-grid"></div>
+    </div>
+  </section>
+
+  <!-- Skills & Core Capabilities Section -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Capabilities</span>
+        <h2 class="section-title">Technical Mastery & Stack</h2>
+        <p class="section-subtitle">Deep expertise across modern web standards, state engines, and performance tuning.</p>
+      </div>
+
+      <div class="skills-grid" id="skills-grid"></div>
+    </div>
+  </section>
+
+  <!-- Experience Timeline Section -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Career Journey</span>
+        <h2 class="section-title">Engineering Leadership</h2>
+        <p class="section-subtitle">Track record of building zero-to-one products and scaling frontend systems.</p>
+      </div>
+
+      <div class="timeline" id="experience-timeline"></div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Let's Connect</span>
+        <h2 class="section-title">Start a Conversation</h2>
+        <p class="section-subtitle">Have a project in mind or want to discuss technical leadership? Send a direct message below.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="glass-panel contact-card">
+          <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; font-weight: 700;">Direct Contact Info</h3>
+          
+          <div class="contact-info-item">
+            <div class="contact-icon">📧</div>
+            <div>
+              <h4 style="font-size: 0.95rem; font-weight: 600;">Email Address</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">kai.vance.dev@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4 style="font-size: 0.95rem; font-weight: 600;">Location</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">San Francisco, CA (Remote Worldwide)</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">🌐</div>
+            <div>
+              <h4 style="font-size: 0.95rem; font-weight: 600;">Timezone</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">PST (UTC -8)</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="glass-panel contact-card" id="contact-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" class="form-input" placeholder="e.g. Alex Mercer" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-input" placeholder="alex@company.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Project Details / Message</label>
+            <textarea id="message" rows="4" class="form-textarea" placeholder="Tell me about your vision, timeline, and tech stack..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; justify-center: center;">Send Message 🚀</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-socials">
+        <a href="#" class="social-link" title="GitHub">🐙</a>
+        <a href="#" class="social-link" title="LinkedIn">💼</a>
+        <a href="#" class="social-link" title="Twitter / X">🐦</a>
+        <a href="#" class="social-link" title="CodePen">⚡</a>
+      </div>
+      <p>© 2026 Kai Vance. Engineered with Precision & Clean Architecture.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification element -->
+  <div class="toast" id="toast">
+    <span style="font-size: 1.2rem;">✅</span>
+    <span id="toast-message">Message sent successfully! Kai will get back to you shortly.</span>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
